@@ -1,0 +1,318 @@
+2025-06-24 21:53:00,189 - ERROR - 未检测到GOOGLE_API_KEY，请在.env文件中配置
+2025-06-24 21:53:29,319 - ERROR - 未检测到GOOGLE_API_KEY，请在.env文件中配置
+2025-06-24 21:54:14,090 - ERROR - 未检测到GOOGLE_API_KEY，请在.env文件中配置
+2025-06-24 21:55:13,894 - INFO - ==== 自动化内容生成流程启动 ===
+2025-06-24 21:55:13,894 - INFO - 开始调用Gemini大模型API...
+2025-06-24 21:55:13,895 - ERROR - 调用Gemini API或解析返回内容失败: GenerativeModel.__init__() got an unexpected keyword argument 'api_key'
+2025-06-24 21:56:33,611 - INFO - ==== 自动化内容生成流程启动 ===
+2025-06-24 21:56:33,611 - INFO - 开始调用Gemini大模型API...
+2025-06-24 22:06:29,124 - ERROR - 调用Gemini API或解析返回内容失败: Timeout of 600.0s exceeded, last exception: 503 failed to connect to all addresses; last error: UNKNOWN: ipv4:142.250.198.74:443: socket is null
+2025-06-24 23:25:59,171 - INFO - ==== 自动化内容生成流程启动 ===
+2025-06-24 23:25:59,171 - INFO - 开始调用OpenAI大模型API...
+2025-06-24 23:26:45,139 - INFO - HTTP Request: POST https://yunwu.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 23:26:45,141 - ERROR - 调用OpenAI API或解析返回内容失败: Expecting value: line 1 column 1 (char 0)
+2025-06-24 23:28:20,370 - INFO - ==== 自动化内容生成流程启动 ===
+2025-06-24 23:28:20,371 - INFO - 开始调用Yunwu大模型API...
+2025-06-24 23:29:05,254 - INFO - HTTP Request: POST https://yunwu.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 23:29:05,256 - INFO - 原始返回内容：好的，遵命。作为顶级内容策划师和前端开发专家，我将为您生成一份融合了小红书风格与Bento Grid结构的HTML内容卡片。
+
+### 主题设定：AI Prompt Engineering for Beginners
+
+我已根据此主题，按照您要求的内部工作流和JSON格式，策划了五张卡片的核心内容。现在，我将这些策划内容以最终的HTML代码形式呈现给您。
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小红书 Bento 风格内容卡片 - AI Prompt Engineering</title>
+    
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- html2canvas CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        /* 自定义字体和基础样式 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;700;900&family=Roboto:wght@300;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans SC', 'Roboto', sans-serif;
+            background-color: #111111; /* 深色背景以突出卡片 */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 4rem 1rem;
+            min-height: 100vh;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        /* 卡片容器固定比例 */
+        .card-container {
+            width: 375px; /* 1125px / 3 */
+            height: 500px; /* 1500px / 3 */
+            position: relative;
+            transform-origin: top center;
+            transition: transform 0.3s ease;
+        }
+        
+        .card-container:hover {
+            transform: scale(1.03);
+        }
+
+        /* 卡片内容区域，这是将被截图的区域 */
+        .card-content {
+            width: 1125px;
+            height: 1500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(0.3333); /* 缩小到容器大小 */
+            transform-origin: top left;
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: repeat(10, 1fr);
+            grid-template-columns: repeat(8, 1fr);
+            gap: 30px; /* 网格间距 */
+            padding: 60px; /* 内边距 */
+        }
+        
+        /* 保存按钮 */
+        .save-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .save-btn:hover {
+            background-color: #ffa500;
+        }
+
+        /* 辅助信息通用样式 */
+        .sub-text {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Card 1: Hook Cover -->
+    <div class="card-container" id="card-container-1">
+        <button class="save-btn" data-target="card-content-1">
+            <i class="fas fa-save"></i>
+        </button>
+        <div id="card-content-1" class="card-content bg-black text-white">
+            <div class="col-span-8 row-span-4 flex flex-col justify-end items-start p-6">
+                <h1 class="text-9xl font-black leading-tight tracking-tighter">你与AI高手的差距<br>只差一个好<span class="text-[#ffa500]">Prompt</span></h1>
+            </div>
+            <div class="col-span-8 row-span-1 flex items-center p-6 border-t border-white/20">
+                <p class="text-4xl sub-text text-white/70">Stop getting generic answers. Start commanding your AI.</p>
+            </div>
+            <div class="col-span-8 row-span-5 flex justify-center items-center">
+                <i class="fas fa-brain text-[300px] text-[#ffa500] opacity-10"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2: Insight Point -->
+    <div class="card-container" id="card-container-2">
+        <button class="save-btn" data-target="card-content-2">
+            <i class="fas fa-save"></i>
+        </button>
+        <div id="card-content-2" class="card-content bg-white text-black">
+            <div class="col-span-8 row-span-2 p-6 border-b border-black/10">
+                <h2 class="text-8xl font-black leading-tight">错误示范: 向AI<span class="text-[#ffa500]">提问</span><br>正确做法: 给AI<span class="text-[#ffa500]">指令</span></h2>
+            </div>
+            <div class="col-span-4 row-span-8 p-6 flex flex-col bg-red-50 rounded-3xl">
+                <p class="text-4xl font-bold mb-6"><i class="fas fa-times-circle text-red-500 mr-3"></i>错误认知</p>
+                <div class="bg-black/5 p-6 rounded-xl flex-grow">
+                    <p class="text-4xl text-black/70 font-mono">"What is marketing?"</p>
+                </div>
+                <p class="mt-6 text-3xl text-black/60">得到的回答宽泛、缺乏针对性，无法直接应用。</p>
+            </div>
+            <div class="col-span-4 row-span-8 p-6 flex flex-col bg-green-50 rounded-3xl">
+                <p class="text-4xl font-bold mb-6"><i class="fas fa-check-circle text-green-500 mr-3"></i>正确做法</p>
+                <div class="bg-black/5 p-6 rounded-xl
+2025-06-24 23:29:05,266 - ERROR - 调用OpenAI API或解析返回内容失败: Expecting value: line 1 column 1 (char 0)
+2025-06-24 23:35:51,583 - INFO - ==== 自动化内容生成流程启动 ===
+2025-06-24 23:35:51,584 - INFO - 开始调用Yunwu大模型API...
+2025-06-24 23:36:16,982 - INFO - HTTP Request: POST https://yunwu.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 23:36:16,984 - INFO - 原始返回内容：```json
+{
+  "caption": {
+    "body": "📚你是不是也收藏了=生产了？感觉学了很多，但脑子还是一片空白？🤯 那是因为你缺少一个高效的个人知识管理系统！今天就来分享我的独家秘笈，把零散知识变成你的超强大脑！🧠✨",
+    "closing": "记住，知识不是越多越好，而是能用才好。从今天开始，搭建属于你自己的知识库吧！💪 告诉我你最喜欢用哪个笔记软件？评论区聊聊～"
+  },
+  "tags": [
+    "#个人知识管理",
+    "#学习方法",
+    "#Notion",
+    "#Obsidian",
+    "#第二大脑",
+    "#干货分享",
+    "#自我提升",
+    "#学习博主"
+  ],
+  "bentobox_slides": [
+    {
+      "slide_type": "Hook_Cover",
+      "headline": "别再瞎收藏了！你的大脑需要一次升级",
+      "body": "从信息过载到知识内化，只需一步。"
+    },
+    {
+      "slide_type": "Insight_Point",
+      "headline": "知识管理的误区：追求完美的“大而全”笔记",
+      "body": "真正的系统不是记录一切，而是建立连接，让知识为你所用。"
+    },
+    {
+      "slide_type": "Solution_Kit",
+      "headline": "搭建你的第二大脑：三步搞定",
+      "body": "1. 捕捉：快速记录闪念。2. 组织：用PARA框架分类。3. 提炼：定期回顾，输出成果。"
+    },
+    {
+      "slide_type": "Principle_Deep_Dive",
+      "headline": "核心原理：卡片盒笔记法 (Zettelkasten)",
+      "body": "把每个知识点当成一张卡片，通过链接网络，让创意自然涌现。"
+    },
+    {
+      "slide_type": "Summary_CTA",
+      "headline": "让知识流动起来，而不是堆积成山",
+      "body": "现在就开始行动！点个收藏，下次找不到了别怪我哦～"
+    }
+  ]
+}
+```
+2025-06-24 23:36:16,987 - INFO - OpenAI返回内容解析成功
+2025-06-24 23:36:16,987 - ERROR - 未检测到html字段，流程终止
+2025-06-24 23:46:14,576 - INFO - ==== 自动化内容生成流程启动 ===
+2025-06-24 23:46:14,576 - INFO - 开始调用Yunwu大模型API生成结构化内容...
+2025-06-24 23:46:43,600 - INFO - HTTP Request: POST https://yunwu.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 23:46:43,601 - INFO - 结构化内容原始返回：```json
+{
+  "caption": {
+    "body": "AI能秒出80分文章，你是不是也开始懒得思考了？🤔\n小心！当思考被外包，我们思维的肌肉正在悄悄萎缩… 比“不会写”更可怕的是“不会想”！🧠\n\n在这个时代，写作不是一项技能，而是我们保持清醒、对抗平庸的武器。它能帮你：\n✨ 开启元认知：跳出思维的漩涡，看清自己“如何思考”。\n✨ 拓展认知边界：语言的颗粒度，决定了你世界的高清度。\n✨ 创造独特价值：在AI的“平均正确”之外，发出你独一无二的声音。\n\n别再只做信息的收藏家了，开始写作，成为思想的创造者。✍️",
+    "closing": "金句总结：在人人都能外包思考的时代，选择动笔，就是选择自由。\n\n💬 留言告诉我，你有多久没有为自己写点东西了？"
+  },
+  "tags": [
+    "#写作",
+    "#AI时代",
+    "#深度思考",
+    "#个人成长",
+    "#认知觉醒",
+    "#思维提升",
+    "#元认知",
+    "#自我提升"
+  ],
+  "bentobox_slides": [
+    {
+      "slide_type": "Hook_Cover",
+      "headline": "AI写得比你好，但你会“想”吗？",
+      "body": "当思考可以外包，我们正在失去最宝贵的能力。"
+    },
+    {
+      "slide_type": "Insight_Point",
+      "headline": "停止写作，萎缩的不是手指，是大脑",
+      "body": "你以为AI是高效工具，实际却在让你放弃深度思考，沦为信息的搬运工。"
+    },
+    {
+      "slide_type": "Solution_Kit",
+      "headline": "用1支笔，唤醒3大底层能力",
+      "body": "1. 练习元认知：像开上帝视角，审视自己的思维路径。\n2. 拓展认知边界：精准定义感受，语言越清晰，世界越高清。\n3. 创造独特价值：在AI的平均值外，形成你的独特情感和视角。"
+    },
+    {
+      "slide_type": "Principle_Deep_Dive",
+      "headline": "写作的本质：给混沌的思维画一张蓝图",
+      "body": "把脑中杂乱的想法写下来，就像把一团乱麻梳理整齐，逻辑和洞察自然浮现。"
+    },
+    {
+      "slide_type": "Summary_CTA",
+      "headline": "在AI时代，写作是人类最后的觉醒",
+      "body": "今天就动笔，哪怕只写一句话。点赞收藏，开始你的思考觉醒之旅！"
+    }
+  ]
+}
+```
+2025-06-24 23:46:43,605 - INFO - 结构化内容解析成功
+2025-06-24 23:46:43,606 - INFO - 结构化内容已保存
+2025-06-24 23:46:43,606 - INFO - 开始调用Yunwu大模型API生成HTML...
+2025-06-24 23:47:25,311 - INFO - HTTP Request: POST https://yunwu.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 23:47:25,313 - INFO - HTML生成成功
+2025-06-24 23:47:25,314 - INFO - HTML已保存
+2025-06-24 23:47:25,314 - ERROR - HTML转PNG失败: Html2Image.screenshot() got an unexpected keyword argument 'output_path'
+2025-06-24 23:47:25,315 - INFO - 文案和标签已保存
+2025-06-24 23:47:25,316 - INFO - ==== 流程执行完毕 ===
+2025-06-24 23:59:12,643 - INFO - ==== 自动化内容生成流程启动 ===
+2025-06-24 23:59:12,644 - INFO - 开始调用Yunwu大模型API生成结构化内容...
+2025-06-24 23:59:48,560 - INFO - HTTP Request: POST https://yunwu.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-24 23:59:48,562 - INFO - 结构化内容原始返回：```json
+{
+  "caption": {
+    "body": "是不是感觉脑子越来越懒，刷了无数干货却什么也没留下？🤔 警惕！这可能是因为我们把“思考”这件事，悄悄外包给了AI。🤖 AI能写出80分的文章，却写不出你100分的人生体验和独特思考。在AI时代，写作不是一项过时的技能，而是我们保持清醒、对抗思维懒惰的终极武器。✍️ 它能帮你理清混乱思绪、深化认知、拉长生命体验、找到独一无二的自己。这5张图，带你重新认识写作的力量。👇",
+    "closing": "✨ 金句分享：在人人都能外包思考的时代，选择动笔，就是选择自由。你有多久没动笔写字了？评论区聊聊你对写作的看法吧！👇"
+  },
+  "tags": [
+    "#写作",
+    "#个人成长",
+    "#深度思考",
+    "#AI时代",
+    "#认知觉醒",
+    "#知识管理",
+    "#学习方法"
+  ],
+  "bentobox_slides": [
+    {
+      "slide_type": "Hook_Cover",
+      "headline": "AI写得再好，也别放弃这件事✍️",
+      "body": "当思考都能外包，我们还剩下什么？"
+    },
+    {
+      "slide_type": "Insight_Point",
+      "headline": "比“不会写”更可怕的，是“不会想”",
+      "body": "❌ 误区：AI帮我写作，提高效率。\n✅ 真相：过度依赖AI，会让思维肌肉萎缩，变成只会复制粘贴的“思想巨婴”。"
+    },
+    {
+      "slide_type": "Solution_Kit",
+      "headline": "用3个视角，重拾写作的力量",
+      "body": "1️⃣ 元认知道场：把脑中混乱想法写下来，理清逻辑，看清自己。\n2️⃣ 认知放大器：用精准的词描述感受，把模糊的“不爽”变成可解决的问题。\n3️⃣ 体验拉长镜：记录生活对抗遗忘，让回忆成为有温度的故事。"
+    },
+    {
+      "slide_type": "Principle_Deep_Dive",
+      "headline": "写作的本质：一场思维的“具身认知”",
+      "body": "就像健身锻炼肌肉，写作是在锻炼你的“思维肌肉”。你写下的每个字，都是在给混乱的想法塑形，让看不见的思考变得看得见、摸得着。"
+    },
+    {
+      "slide_type": "Summary_CTA",
+      "headline": "写作，是人类最后的觉醒能力",
+      "body": "别把思考的权利让渡给机器。✨ 马上收藏，开始你的第一次“思维健身”！"
+    }
+  ]
+}
+```
+2025-06-24 23:59:48,566 - INFO - 结构化内容解析成功
+2025-06-24 23:59:48,567 - INFO - 结构化内容已保存
+2025-06-24 23:59:48,567 - INFO - 开始调用Yunwu大模型API生成HTML...
